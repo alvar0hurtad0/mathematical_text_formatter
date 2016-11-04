@@ -3,3 +3,7 @@ services:
     class: Drupal\mathematical_text_formatter\Lexer
     arguments: []
 
+  mathematical_text_formatter.parser:
+    class: Drupal\mathematical_text_formatter\Parser
+    arguments: []
+
