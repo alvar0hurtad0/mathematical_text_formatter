@@ -1,0 +1,5 @@
+name: mathematical_text_formatter
+type: module
+description: Text formatter that outputs the result of a mathematical operation. Currently supporting + and -.
+core: 8.x
+package: Custom

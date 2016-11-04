@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains mathematical_text_formatter.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function mathematical_text_formatter_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the mathematical_text_formatter module.
+    case 'help.page.mathematical_text_formatter':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Text formatter that outputs the result of a mathematical operation. Currently supporting + and -.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
