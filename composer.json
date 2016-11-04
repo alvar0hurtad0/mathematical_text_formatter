@@ -1,0 +1,14 @@
+{
+  "name": "drupal/mathematical_text_formatter",
+  "type": "drupal-module",
+  "description": "Text formatter that outputs the result of a mathematical operation. Currently supporting + and -.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/mathematical_text_formatter",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/mathematical_text_formatter",
+    "source": "http://cgit.drupalcode.org/mathematical_text_formatter"
+  },
+  "require": { }
+}
