@@ -8,7 +8,6 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
 
-
 /**
  * Plugin implementation of the 'calculated_expression' formatter.
  *
@@ -24,6 +23,7 @@ use Drupal\Core\Form\FormStateInterface;
  * )
  */
 class CalculatedExpression extends FormatterBase {
+
   /**
    * {@inheritdoc}
    */
@@ -48,7 +48,6 @@ class CalculatedExpression extends FormatterBase {
   public function settingsSummary() {
     $summary = [];
     // Implement settings summary.
-
     return $summary;
   }
 
@@ -75,9 +74,19 @@ class CalculatedExpression extends FormatterBase {
    *   The textual output generated.
    */
   protected function viewValue(FieldItemInterface $item) {
-    // The text value has no text format assigned to it, so the user input
-    // should equal the output, including newlines.
-    return nl2br(Html::escape($item->value));
+    $lexer = \Drupal::service('mathematical_text_formatter.lexer');
+    $parser = \Drupal::service('mathematical_text_formatter.parser');
+
+    // Clean up the expression.
+    $expression = Html::escape(str_replace(' ', '', $item->value));
+
+    // Get the tokens from expression.
+    $tokens = $lexer->tokenize($expression);
+
+    // Calculate reslt of tokens.
+    $result = $parser->caluclate($tokens);
+
+    return $result;
   }
 
 }
