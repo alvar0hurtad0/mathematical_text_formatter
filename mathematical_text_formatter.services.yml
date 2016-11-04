@@ -1,0 +1,5 @@
+services:
+  mathematical_text_formatter.lexer:
+    class: Drupal\mathematical_text_formatter\Lexer
+    arguments: []
+
